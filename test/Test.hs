@@ -42,11 +42,11 @@ list_search_tests =
 
 {---------------
 
-    ListSort Test START
+    quickSort Test START
 
 ----------------}
 
-list_sort_tests =
+quick_sort_tests =
     [
     TestCase $
         assertEqual "ListSort simple" [1, 5, 32, 50, 81, 99] $ ListSort.quickSort [1, 5, 99, 81, 32, 50]
@@ -57,9 +57,30 @@ list_sort_tests =
 
 {---------------
 
-    ListSort Test END
+    quickSort Test END
+
+----------------}
+
+{---------------
+
+    mergeSort Test START
+
+----------------}
+
+merge_sort_tests =
+    [
+    TestCase $
+            assertEqual "ListSort simple" [1, 5, 32, 50, 81, 99] $ ListSort.mergeSort [1, 5, 99, 81, 32, 50]
+    ,
+    TestCase $
+            assertEqual "ListSort with same elements" [1, 5, 5, 32, 50, 81, 81, 99] $ ListSort.mergeSort [1, 5, 99, 81, 32, 50, 5, 81]
+    ]
+
+{---------------
+
+    mergeSort Test END
 
 ----------------}
 
 tests = TestList $
-    list_search_tests ++ list_sort_tests
+    list_search_tests ++ quick_sort_tests ++ merge_sort_tests
