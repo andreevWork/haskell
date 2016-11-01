@@ -82,5 +82,29 @@ merge_sort_tests =
 
 ----------------}
 
+{---------------
+
+    heapSort Test START
+
+----------------}
+
+heap_sort_tests =
+    [
+    TestCase $
+            assertEqual "ListSort simple" [1, 5, 32, 50, 81, 99] $ ListSort.heapSort [1, 5, 99, 81, 32, 50]
+    ,
+    TestCase $
+            assertEqual "ListSort with same elements" [1, 5, 5, 32, 50, 81, 81, 99] $ ListSort.heapSort [1, 5, 99, 81, 32, 50, 5, 81]
+    ]
+
+{---------------
+
+    heapSort Test END
+
+----------------}
+
 tests = TestList $
-    list_search_tests ++ quick_sort_tests ++ merge_sort_tests
+    list_search_tests
+    ++ quick_sort_tests
+    ++ merge_sort_tests
+    ++ heap_sort_tests
